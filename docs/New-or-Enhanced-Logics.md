@@ -78,6 +78,9 @@ Promote.IncludeSpawns=no  ; boolean
 
 - Now you can have a shield for any TechnoType if `Shield.Strength` is set greater than 0. It serves as a second health pool with independent `Armor` and `Strength` values.
 - `Shield.SelfHealing` and `Shield.Respawn` respect the following settings: 0.0 disables the feature, 1%-100% recovers/respawns the shield strength in percentage, other number recovers/respawns the shield strength directly. Specially, `Shield.SelfHealing` with a negative number deducts the shield strength.
+- If 1%-100% (or 0.01 through 1), the value multiplied by `Shield.Strength` must equal a number equal to or higher than 1, else nothing is ever added to the shield.
+- Example: Shield.Strength=98 * Shield.SelfHealing=0.01 means restoring +0.98HP to shield, which is rounded down to +0HP. Use 0.02 instead to round it down to +1HP.
+- An alternative to add 1HP would be Shield.SelfHealing=1.1
 - `Shield.SelfHealing.Rate` and `Shield.Respawn.Rate` respect the following settings: 0.0 instantly recovers the shield, other values determine the frequency of shield recovers/respawns in ingame minutes.
 - `Shield.HitAnim` will be played if set when Shield is attacked, similiar to Iron Curtaion.
 - A TechnoType with a Shield will show its Shield Strength. An empty shield strength bar will be left after destroyed if it is respawnable.
